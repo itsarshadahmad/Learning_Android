@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Learning Layouts</string>
+    <string name="_0">0</string>
+    <string name="enter_second_number">Enter second number</string>
+    <string name="enter_first_number">Enter first number</string>
+    <string name="plus_symbol">+</string>
+    <string name="minus_symbol">-</string>
+    <string name="x">x</string>
+    <string name="division_symbol">÷</string>
+</resources>
