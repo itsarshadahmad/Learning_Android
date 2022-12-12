@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.android.volley.RequestQueue
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
@@ -18,6 +20,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        val userList: RecyclerView = findViewById(R.id.userList)
+        userList.layoutManager = LinearLayoutManager(this)
+
 //        StringRequest create network request where first param is URL, and second
 //        param is Response.Listener it runs code on either successful response or
 //        error response by running callback.
@@ -30,7 +35,8 @@ class MainActivity : AppCompatActivity() {
             val gsonBuilder: GsonBuilder = GsonBuilder()
             val gson: Gson = gsonBuilder.create()
             val users = gson.fromJson(response, Array<User>::class.java).toList()
-            Log.d("CODE", "onResponse:\n${users[0]} ")
+//            Log.d("CODE", "onResponse:\n${users[0]} ")
+            userList.adapter = GithubAdapter(this@MainActivity, users.toTypedArray())
         }, { error ->
             // Error Callback onErrorResponse(error)
             Toast.makeText(this, "Something went wrong!\n$error", Toast.LENGTH_LONG).show()
