@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Menu Actionbar and Drawer</string>
+    <string name="close">Open</string>
+    <string name="open">Close</string>
 </resources>
