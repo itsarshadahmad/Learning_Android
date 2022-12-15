@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+        <TextView
+            android:id="@+id/tvQuestion"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:text="What do you want to order?"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Radio button are inside group to see which one selected. -->
+        <RadioGroup
+            android:id="@+id/rgOptions"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="@+id/tvQuestion"
+            app:layout_constraintTop_toBottomOf="@+id/tvQuestion">
+
+            <RadioButton
+                android:id="@+id/rbChecken"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:checked="true"
+                android:text="Checken"
+                android:textSize="16sp" />
+
+            <RadioButton
+                android:id="@+id/rbEgg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="Egg"
+                android:textSize="16sp" />
+
+            <RadioButton
+                android:id="@+id/rbMeat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="Meat"
+                android:textSize="16sp" />
+        </RadioGroup>
+
+        <CheckBox
+            android:id="@+id/cbCheeze"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Cheese"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="@+id/rgOptions"
+            app:layout_constraintTop_toBottomOf="@+id/rgOptions" />
+
+        <CheckBox
+            android:id="@+id/cbOnions"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Onions"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="@+id/cbCheeze"
+            app:layout_constraintTop_toBottomOf="@+id/cbCheeze" />
+
+        <CheckBox
+            android:id="@+id/cbSalad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Salad"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="@+id/cbOnions"
+            app:layout_constraintTop_toBottomOf="@+id/cbOnions" />
+
+        <Button
+            android:id="@+id/btnOrder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Order"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="@+id/cbSalad"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/cbSalad"
+            app:layout_constraintTop_toBottomOf="@+id/cbSalad" />
+
+        <TextView
+            android:id="@+id/tvOrder"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnOrder"
+            app:layout_constraintVertical_bias="0.139" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
