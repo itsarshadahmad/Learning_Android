@@ -31,6 +31,7 @@ class MainActivity : AppCompatActivity() {
         // Create number badge for message icon
         bottomNavigationView.getOrCreateBadge(R.id.miMessages).apply {
             number = 10 // 10 messages
+            isVisible = true
         }
     }
 

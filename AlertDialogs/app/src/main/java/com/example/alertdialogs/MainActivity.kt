@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity() {
         val singleChoiceDialog = AlertDialog.Builder(this).setTitle("Choose of these options")
             .setSingleChoiceItems(options, 0) { _, i ->
                 Toast.makeText(this, "You have clicked on ${options[i]}.", Toast.LENGTH_LONG).show()
-            }.setPositiveButton("Accept") { _: DialogInterface, i: Int ->
+            }.setPositiveButton("Accept") { _: DialogInterface, _: Int ->
                 Snackbar.make(
                     binding.root, "You have accepted.", Snackbar.LENGTH_LONG
                 ).show()

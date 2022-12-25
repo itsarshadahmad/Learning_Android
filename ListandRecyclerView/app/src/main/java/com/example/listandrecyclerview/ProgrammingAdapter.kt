@@ -21,9 +21,9 @@ class ProgrammingAdapter(data: Array<String>) :
     // It execute at creation time of views.
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProgrammingViewHolder {
         // Layout Inflater return view object corresponding to layout views
-        val inflater = LayoutInflater.from(parent.context)
+        val inflater = LayoutInflater.from(parent.context) // passing context from parent view group
         val view: View = inflater.inflate(R.layout.list_item_layout, parent, false)
-        return ProgrammingViewHolder(view)
+        return ProgrammingViewHolder(view) // Passing views to view holder class
     }
 
     // It set data to views or View holder
