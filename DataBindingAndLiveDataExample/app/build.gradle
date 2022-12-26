@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace 'com.example.livedataexample'
+    namespace 'com.example.databindingandlivedataexample'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.example.livedataexample"
+        applicationId "com.example.databindingandlivedataexample"
         minSdk 23
         targetSdk 33
         versionCode 1
@@ -29,6 +29,10 @@ android {
     }
     kotlinOptions {
         jvmTarget = '1.8'
+    }
+
+    buildFeatures {
+        dataBinding true
     }
 }
 
