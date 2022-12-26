@@ -14,6 +14,13 @@ import java.util.*
 // convertors, migration. It is also flexible to allow us write sql queries also.
 // Coroutines will be used to execute database operation on background thread.
 
+// Db Migration -> When we update our database like made some changes added some, rows
+// or columns in that case we migrate our db from one version to another version. Any
+// changes can be said as db migration. In migration we have to make changes that
+// doesn't break or risk previous users data. Like we added date field here so we want
+// users who doesn't have date field their data and db work as other just might be that
+// field functionality would be missing or assigned to null.
+
 class MainActivity : AppCompatActivity() {
 
     lateinit var database: ContactDatabase
@@ -29,7 +36,8 @@ class MainActivity : AppCompatActivity() {
 //         Executing on other thread
         CoroutineScope(Dispatchers.Default).launch {
             database.contactDao().insertContact(
-                Contact(0, "Joe", "98765", Date())
+//                Contact(0, "Joe", "98765", Date())
+                Contact(0, "Andrew", "98765", Date(), true)
             )
         }
 

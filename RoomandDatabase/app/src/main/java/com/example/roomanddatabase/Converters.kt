@@ -14,12 +14,14 @@ import java.util.Date
 class Converters {
 
     @TypeConverter
-    fun fromDateToLong(date: Date): Long {
-        return date.time
-    }
+    fun fromDateToLong(date: Date): Long = date.time
 
     @TypeConverter
-    fun fromLongToDate(long: Long): Date {
-        return Date(long)
-    }
+    fun fromLongToDate(long: Long): Date = Date(long)
+
+    @TypeConverter
+    fun fromBooleanToInt(bool: Boolean): Int = if (bool) 1 else 0
+
+    @TypeConverter
+    fun fromIntToBoolean(integer: Int): Boolean = integer == 0
 }
