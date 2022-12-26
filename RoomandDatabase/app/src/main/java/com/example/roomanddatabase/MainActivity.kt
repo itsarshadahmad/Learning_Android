@@ -7,6 +7,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.room.Room
 import kotlinx.coroutines.*
+import java.util.*
 
 // RoomDb -> is abstraction over SQLite which less boilerplate code, process query at
 // compile time. It offers entities, DAO (data access object), database, type
@@ -23,15 +24,12 @@ class MainActivity : AppCompatActivity() {
 
         val tvShow = findViewById<TextView>(R.id.tvShow)
 
-        // build database instance object
-        database = Room.databaseBuilder(
-            applicationContext, ContactDatabase::class.java, "contactDB"
-        ).build()
+        database = ContactDatabase.getDatabase(this) // db instance
 
 //         Executing on other thread
         CoroutineScope(Dispatchers.Default).launch {
             database.contactDao().insertContact(
-                Contact(0, "Joe", "98765")
+                Contact(0, "Joe", "98765", Date())
             )
         }
 

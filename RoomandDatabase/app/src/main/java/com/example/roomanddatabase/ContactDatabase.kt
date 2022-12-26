@@ -1,13 +1,39 @@
 package com.example.roomanddatabase
 
+import android.content.Context
 import androidx.room.Database
+import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
 
 // Database -> This will create database. Its implementation will be added by room.
 // contact is passed as array which will create multiple table in our db. We also
 // link our dao with entities and database.
 @Database(entities = [Contact::class], version = 1)
+@TypeConverters(Converters::class) // To setup type converter class to db class
 abstract class ContactDatabase : RoomDatabase() {
     abstract fun contactDao(): ContactDAO
+
+    // Singleton design pattern
+    companion object {
+        // Volatile annotation will notify when contact instance is available or changes
+        @Volatile
+        private var contactInstance: ContactDatabase? = null
+
+        // build database instance object, if already build then return object
+        fun getDatabase(context: Context): ContactDatabase {
+            if (contactInstance == null) {
+                // Synchronized block will allow to stay in sync when multiple calls
+                // happen. To avoid creating multiple instance of database.
+                synchronized(this) {
+                    contactInstance = Room.databaseBuilder(
+                        context.applicationContext,
+                        ContactDatabase::class.java,
+                        "contactDB"
+                    ).build()
+                }
+            }
+            return contactInstance!!
+        }
+    }
 }
-// its recommend to declared db class as singleton pattern to have one instance of db.
